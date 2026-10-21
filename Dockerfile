@@ -1,7 +1,7 @@
 FROM php:8.2-apache
 
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends ca-certificates \
+    && apt-get install -y --no-install-recommends ca-certificates libonig-dev \
     && rm -rf /var/lib/apt/lists/* \
     && docker-php-ext-install mysqli mbstring \
     && sed -i 's/Listen 80/Listen 10000/' /etc/apache2/ports.conf \
